@@ -1,0 +1,61 @@
+# Dataset - JANGAN PUSH!
+Dataset/
+dataset/
+data/
+Data/
+
+# Model weights dan outputs
+outputs/
+*.pth
+*.pt
+*.onnx
+*.pkl
+*.h5
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environment
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+# OS
+.DS_Store
+Thumbs.db
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*.backup
+temp/
+tmp/
+
+# Large files
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# Training logs
+logs/
+tensorboard/
+wandb/

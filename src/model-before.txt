@@ -1,0 +1,28 @@
+import torch.nn as nn
+import timm
+
+def get_model():
+    model = timm.create_model("efficientnet_b0", pretrained=True)
+
+    # Freeze semua layer dulu
+    for param in model.parameters():
+        param.requires_grad = False
+
+    # Buka 2 block terakhir
+    for param in model.blocks[-1].parameters():
+        param.requires_grad = True
+
+    for param in model.blocks[-2].parameters():
+        param.requires_grad = True
+
+    in_features = model.classifier.in_features
+
+    model.classifier = nn.Sequential(
+        nn.Linear(in_features, 256),
+        nn.BatchNorm1d(256),
+        nn.ReLU(),
+        nn.Dropout(0.5),
+        nn.Linear(256, 1)
+    )
+
+    return model
